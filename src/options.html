@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pop Setting</title>
+</head>
+<body>
+<label>Plugin Option:</label>
+<label for="switchOn">
+    <input id="switchOn" name="switch" type="radio" value="on" checked>On</label>
+<label for="switchOff">
+    <input id="switchOff" name="switch" type="radio" value="off">Off</label>
+</br>
+
+<label>StartTime Option:</label></br>
+<label for="timeSwitch">
+    <input id="timeSwitch" name="startTimeSwitch" type="radio" value="time" checked>Time</label>
+<label for="percentageSwitch">
+    <input id="percentageSwitch" name="startTimeSwitch" type="radio" value="percentage">Percentage</label>
+</br>
+
+<label id="startTimeLabel">Start Time(default 150):</label>
+<input id="startTime" type="number" value="150">
+
+
+</br>
+<label>EndTime Option:</label></br>
+<label for="timeSwitch2">
+    <input id="timeSwitch2" name="endTimeSwitch" type="radio" value="time">Time</label>
+<label for="percentageSwitch2">
+    <input id="percentageSwitch2" name="endTimeSwitch" type="radio" value="percentage" checked>Percentage</label>
+</br>
+<label id="endTimeLabel">Rest End Percentage(default 10%):</label>
+<input id="endTime" type="number" value="92">
+</br>
+<div id="status"></div></br>
+
+<button id="save">Save</button>
+
+<script src="js/options.js"></script>
+</body>
+</html>
