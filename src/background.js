@@ -30,6 +30,69 @@
 //     }
 //
 // });
+function initialFunction(){
+    chrome.storage.local.get([
+        'startTime',
+        'endTime',
+        'startTime_p',
+        'endTime_p',
+        'startTime_switch',
+        'endTime_switch',
+        'plugin_on'
+    ], function(items) {
+        if(items.startTime==undefined){
+            chrome.storage.local.set({
+                'startTime': 150,
+            }, function() {
+
+            });
+        }
+        if(items.endTime==undefined){
+            chrome.storage.local.set({
+                'endTime': 150,
+            }, function() {
+
+            });
+        }
+        if(items.startTime_p==undefined){
+            chrome.storage.local.set({
+                'startTime_p': 10,
+            }, function() {
+
+            });
+        }
+        if(items.endTime_p==undefined){
+            chrome.storage.local.set({
+                'endTime_p': 90,
+            }, function() {
+
+            });
+        }
+        if(items.startTime_switch==undefined){
+            chrome.storage.local.set({
+                'startTime_switch': 1,
+            }, function() {
+
+            });
+        }
+        if(items.endTime_switch==undefined){
+            chrome.storage.local.set({
+                'endTime_switch': 2,
+            }, function() {
+
+            });
+        }
+        if(items.plugin_on==undefined){
+            chrome.storage.local.set({
+                'plugin_on': true,
+            }, function() {
+
+            });
+        }
+
+    });
+}
+
 
 function loadIcon(sender){
     console.log("log")
@@ -47,6 +110,9 @@ function loadIcon(sender){
 
     });
 }
+
+
+initialFunction()
 
 chrome.runtime.onMessage.addListener(function (request, sender, callback) {
     console.log("hehe")

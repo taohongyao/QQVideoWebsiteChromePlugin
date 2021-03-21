@@ -4,9 +4,9 @@
 <body>
 <label><strong>Plugin Option:</strong></label>
 <label for="switchOn">
-<input id="switchOn" name="switch" type="radio" value="on" checked>On</label>
+    <input id="switchOn" name="switch" type="radio" value="on" checked>On</label>
 <label for="switchOff">
-<input id="switchOff" name="switch" type="radio" value="off">Off</label>
+    <input id="switchOff" name="switch" type="radio" value="off">Off</label>
 </br>
 
 <label><strong>StartTime Option:</strong></label></br>
@@ -30,9 +30,12 @@
 <label id="endTimeLabel"><strong>Endpoint percentage for skipping to next episode(default 90%):</strong></label></br>
 <input id="endTime" type="number" value="92">
 </br>
+<label><strong>Player State:</strong></br><label id="playData"></label></label></br>
 <div id="status"></div></br>
 
-<button id="save">Save</button>
-<button id="reset">Reset</button>
+<button style="width: 100%;" id="save">Save</button>
+<button style="width: 100%;" id="reset">Reset</button>
+<button style="width: 100%;" id="updateStartTime">RecordStartTime</button>
+<button style="width: 100%;" id="updateEndTime">RecordEndTime</button>
 <script src="js/options.js"></script>
 </body>
