@@ -17,7 +17,7 @@ function sendData(){
     });
 }
 var clickCount=0;
-var nexTitle=PLAYER.getNextData().title;
+var nexTitle="";
 setInterval(function () {
 sendData();
 }, 1000);
