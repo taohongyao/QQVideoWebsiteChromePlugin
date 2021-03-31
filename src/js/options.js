@@ -159,7 +159,7 @@ function restore_options2() {
         'endTime_p': 90,
         'startTime_switch': 1,
         'endTime_switch': 2,
-        'plugin_on':true
+        'plugin_on':false
     }, function(items) {
         if(items.startTime_switch==1){
             document.getElementById('timeSwitch').checked = true;

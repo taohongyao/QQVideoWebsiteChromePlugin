@@ -84,7 +84,7 @@ function initialFunction(){
         }
         if(items.plugin_on==undefined){
             chrome.storage.local.set({
-                'plugin_on': true,
+                'plugin_on': false,
             }, function() {
 
             });

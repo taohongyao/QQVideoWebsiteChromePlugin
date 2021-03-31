@@ -17,9 +17,9 @@ function sendData(){
     });
 }
 var clickCount=0;
+var nexTitle=PLAYER.getNextData().title;
 setInterval(function () {
 sendData();
-    console.log("send");
 }, 1000);
 
 if(pluginOn){
@@ -37,6 +37,10 @@ if(pluginOn){
                 PLAYER.seekTo(seekTime);
             }
 
+        }
+        if(nexTitle!=PLAYER.getNextData().title){
+            clickCount=0;
+            nexTitle=PLAYER.getNextData().title;
         }
 
         if(t2switch==1){
