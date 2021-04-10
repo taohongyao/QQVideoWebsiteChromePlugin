@@ -302,6 +302,7 @@ function updateStartTimeFromPlayerInfo(){
     }else {
         document.getElementById('startTime').value=playerCurrentPercentage;
     }
+    save_options2();
 }
 
 function updateEndTimeFromPlayerInfo(){
@@ -311,6 +312,7 @@ function updateEndTimeFromPlayerInfo(){
     }else {
         document.getElementById('endTime').value=playerCurrentPercentage;
     }
+    save_options2();
 }
 
 document.getElementById('timeSwitch').addEventListener('change',switchChange);

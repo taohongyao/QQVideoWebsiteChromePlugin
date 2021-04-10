@@ -6,6 +6,10 @@
 //     startTime=items.startTime;
 //     endPercentage=items.endTime;
 // });
+function isRealValue(obj)
+{
+    return obj && obj !== 'null' && obj !== 'undefined';
+}
 
 function sendData(){
     var currentTime = PLAYER.getCurrentTime();
@@ -17,44 +21,46 @@ function sendData(){
     });
 }
 var clickCount=0;
-var nexTitle="";
+var vid="";
 setInterval(function () {
 sendData();
 }, 1000);
 
 if(pluginOn){
     setInterval(function () {
-        var currentTime = PLAYER.getCurrentTime();
-        var duration = PLAYER.getDuration();
+        if(isRealValue(PLAYER)){
+            var currentTime = PLAYER.getCurrentTime();
+            var duration = PLAYER.getDuration();
 
-        if(t1switch==1){
-            if(currentTime<startTime){
-                PLAYER.seekTo(startTime);
-            }
-        }else {
-            var seekTime=duration*startTime/100;
-            if(currentTime<seekTime){
-                PLAYER.seekTo(seekTime);
-            }
-
-        }
-        if(nexTitle!=PLAYER.getNextData().title){
-            clickCount=0;
-            nexTitle=PLAYER.getNextData().title;
-        }
-
-        if(t2switch==1){
-            var endTimepoint = duration - endTime;
-            if (currentTime > endTimepoint && clickCount==0) {
-                clickCount=1;
-                document.getElementsByClassName("txp_btn_next")[0].click();
+            if(t1switch==1){
+                if(currentTime<startTime){
+                    PLAYER.seekTo(startTime);
+                }
+            }else {
+                var seekTime=duration*startTime/100;
+                if(currentTime<seekTime){
+                    PLAYER.seekTo(seekTime);
+                }
 
             }
-        }else {
-            var endTimepoint = endTime * duration/100;
-            if (currentTime > endTimepoint && clickCount==0) {
-                clickCount=1;
-                document.getElementsByClassName("txp_btn_next")[0].click();
+            if(vid!=PLAYER.getVid()){
+                clickCount=0;
+                vid=PLAYER.getVid();
+            }
+
+            if(t2switch==1){
+                var endTimepoint = duration - endTime;
+                if (currentTime > endTimepoint && clickCount==0) {
+                    clickCount=1;
+                    document.getElementsByClassName("txp_btn_next")[0].click();
+
+                }
+            }else {
+                var endTimepoint = endTime * duration/100;
+                if (currentTime > endTimepoint && clickCount==0) {
+                    clickCount=1;
+                    document.getElementsByClassName("txp_btn_next")[0].click();
+                }
             }
         }
     }, 1000);

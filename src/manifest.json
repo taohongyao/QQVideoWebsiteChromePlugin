@@ -1,7 +1,7 @@
 {
   "name": "QQPlayer Automation",
   "description": "Build an Extension",
-  "version": "1.11",
+  "version": "1.13",
   "manifest_version": 2,
   "background": {
     "scripts": ["background.js"]
