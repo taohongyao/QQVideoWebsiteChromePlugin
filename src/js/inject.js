@@ -12,13 +12,17 @@ function isRealValue(obj)
 }
 
 function sendData(){
-    var currentTime = PLAYER.getCurrentTime();
-    var duration = PLAYER.getDuration();
-    var percentage = currentTime*100/duration;
-    var remain=duration-currentTime;
-    // window.postMessage({action:'playdata',percentage : percentage, currentPoint:currentTime, remainPoint:duration}, "*");
-    chrome.runtime.sendMessage('lannkhbenkacknkjfjmglmamdbbaendh',{action:'playdata',percentage : percentage, currentPoint:currentTime, remainPoint:remain,duration:duration},(response) => {
-    });
+    if(isRealValue(PLAYER)){
+        var currentTime = PLAYER.getCurrentTime();
+        var duration = PLAYER.getDuration();
+        var percentage = currentTime*100/duration;
+        var remain=duration-currentTime;
+        // window.postMessage({action:'playdata',percentage : percentage, currentPoint:currentTime, remainPoint:duration}, "*");
+        chrome.runtime.sendMessage('lannkhbenkacknkjfjmglmamdbbaendh',{action:'playdata',percentage : percentage, currentPoint:currentTime, remainPoint:remain,duration:duration},(response) => {
+        });
+        chrome.runtime.sendMessage('lannkhbenkacknkjfjmglmamdbbaendh',{action:'playdata',percentage : percentage, currentPoint:currentTime, remainPoint:remain,duration:duration},(response) => {
+        });
+    }
 }
 var clickCount=0;
 var vid="";
